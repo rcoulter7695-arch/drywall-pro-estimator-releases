@@ -6,66 +6,36 @@
 <img width="3837" height="1986" alt="Screenshot 2026-10-24 171337" src="https://github.com/user-attachments/assets/5d4e563a-db5c-4f84-8563-34612a1fa591" />
 <img width="3780" height="2004" alt="Screenshot 2026-10-24 171400" src="https://github.com/user-attachments/assets/907ae613-e2d8-4b6c-ac73-647a11c8f9ad" />
 # drywall-pro-estimator-releases
-# Drywall Pro Estimator – Windows + Linux desktop app
 
-A standalone, offline drywall material estimator. The app makes no network
-requests and needs no account.
+Drywall Pro Estimator – Windows + Linux desktop app
+A standalone, offline drywall material estimator. The app makes no network requests and needs no account.
 
-## Blueprint Takeoff tab
-
-1. **Open plan**: a PDF or an image (PNG, JPG, ...). Multi-page PDFs work; each page has its own scale. Type a page number in the **Page** box and press Enter to jump straight there (« and » go to the first and last page).
-2. **Set scale**: click two points a known distance apart (a dimension line), type the distance (12' 6" or 12.5).
-   PDFs also have a scale preset (1/4" = 1'), which is only right if the sheet is full size, so check it with **Measure**.
-3. **Simplest way: Box room.** Click one corner of the room, then the opposite corner. You get a box with four straight sides,
-   so door swings, dimension lines and text on the drawing are never picked up. Walls = distance around × wall height;
-   ceiling = length × width. For an L-shaped room draw two boxes. No plan? Use **+ Room by size** and type the length and width.
-   Or **Trace room** to click the corners of an odd-shaped room.
-   **Openings with no wall (garage door, wide archway):** while tracing, click the corner where the wall stops, press **O**
-   (or click **Next side = opening**), then click the corner where the wall starts again. That side is drawn dashed and its length
-   is left out of the wall total; the floor and ceiling still count the whole room. On a room you already drew (including a Box room),
-   use **Mark opening** and click the side; click it again to put the wall back. For a partial opening such as a 16 ft garage door
-   on a longer wall, type its width in **Garage door / opening** in the room details (works for any room, including Box rooms).
-   Tip: **⛶ Big view** makes the plan fill the whole window (Esc to exit; F11 for full screen). **Rooms & totals** shows the side panel over it.
-4. Set each room's **wall height** and **ceiling**: flat (including high ceilings), vaulted (peak in the middle or one slope),
-   or tray. Add **Stairways** (run, rise, width, headroom) and **Extra areas** (closets, soffits).
-5. **Totals** give wall and ceiling sq ft plus sheets, ProForm boxes, screws, tape and primer, using the same sheet rules
-   and coverage rates as the Estimator tab (tape is counted in 500 ft rolls).
-
-To start another plan, click **Remove plan** (click twice to confirm). It removes the open plan and the rooms traced on it
-and keeps your stairways and extra areas. **Start over** clears everything.
+Blueprint Takeoff tab
+Open plan: a PDF or an image (PNG, JPG, ...). Multi-page PDFs work; each page has its own scale. Type a page number in the Page box and press Enter to jump straight there (« and » go to the first and last page).
+Set scale: click two points a known distance apart (a dimension line), type the distance (12' 6" or 12.5). PDFs also have a scale preset (1/4" = 1'), which is only right if the sheet is full size, so check it with Measure.
+Simplest way: Box room. Click one corner of the room, then the opposite corner. You get a box with four straight sides, so door swings, dimension lines and text on the drawing are never picked up. Walls = distance around × wall height; ceiling = length × width. For an L-shaped room draw two boxes. No plan? Use + Room by size and type the length and width. Or Trace room to click the corners of an odd-shaped room. Openings with no wall (garage door, wide archway): while tracing, click the corner where the wall stops, press O (or click Next side = opening), then click the corner where the wall starts again. That side is drawn dashed and its length is left out of the wall total; the floor and ceiling still count the whole room. On a room you already drew (including a Box room), use Mark opening and click the side; click it again to put the wall back. For a partial opening such as a 16 ft garage door on a longer wall, type its width in Garage door / opening in the room details (works for any room, including Box rooms). Tip: ⛶ Big view makes the plan fill the whole window (Esc to exit; F11 for full screen). Rooms & totals shows the side panel over it.
+Set each room's wall height and ceiling: flat (including high ceilings), vaulted (peak in the middle or one slope), or tray. Add Stairways (run, rise, width, headroom) and Extra areas (closets, soffits).
+Totals give wall and ceiling sq ft plus sheets, ProForm boxes, screws, tape and primer, using the same sheet rules and coverage rates as the Estimator tab (tape is counted in 500 ft rolls).
+To start another plan, click Remove plan (click twice to confirm). It removes the open plan and the rooms traced on it and keeps your stairways and extra areas. Start over clears everything.
 
 It measures what you outline; it does not read dimensions or notes off the drawing, so check each outline and the scale.
 
-## Save and open jobs
+Save and open jobs
+Save job (top right) writes a .dwjob file with the Estimator numbers, the rooms, stairways, scales and the plan files themselves, so you can reopen the whole takeoff later with Open job. Opening a job replaces what is on screen.
 
-**Save job** (top right) writes a `.dwjob` file with the Estimator numbers, the rooms, stairways, scales and the plan files themselves,
-so you can reopen the whole takeoff later with **Open job**. Opening a job replaces what is on screen.
+Company settings and printouts
+⚙ Settings (top right) takes your company name, address, phone, email, a license line, a note for the bottom of printouts and a logo. They are saved on this computer and appear at the top of every printout. The Settings window ends with an About section: version and build time, who programmed it, and the copyright line (edit the name, year, phone and email in index.html, search for ABOUT, and the copyright in package.json). The version at the top right comes from package.json and the build time is stamped each time you run npm start or a build. Raise the version with npm version minor --no-git-tag-version.
 
-## Company settings and printouts
+Printing
+Both tabs have a Print button with an optional job name. It opens the print window; choose a printer, or Save as PDF. The Blueprint printout has the totals, materials and a per-room breakdown.
 
-**⚙ Settings** (top right) takes your company name, address, phone, email, a license line, a note for the bottom of printouts and a logo.
-They are saved on this computer and appear at the top of every printout. The Settings window ends with an **About** section: version and build time, who programmed it, and the copyright line
-(edit the name, year, phone and email in `index.html`, search for `ABOUT`, and the copyright in `package.json`).
-The version at the top right comes from `package.json` and the build time is stamped each time you run `npm start` or a build.
-Raise the version with `npm version minor --no-git-tag-version`.
+Check for updates
+⚙ Settings → About → Check for updates asks one small web file whether a newer version exists. It is the only thing in the app that uses the internet, and only when the button is clicked. Customers still download the new installer themselves.
 
-## Printing
+Put a file like update/version.json (a template is included) on the web. With GitHub, commit it to a public repository and use the "Raw" address, e.g. https://raw.githubusercontent.com/YOURNAME/YOUR-RELEASES-REPO/main/version.json. version is the newest version, url is the page customers open to download it (your Releases page), notes is optional.
+Put that address in package.json as "dpeUpdateUrl", then rebuild.
+Each time you release, raise the version (npm version minor --no-git-tag-version), build, upload the installers to the release, and change version in the web file. The button compares the two numbers.
 
-Both tabs have a **Print** button with an optional job name. It opens the print window; choose a printer, or **Save as PDF**.
-The Blueprint printout has the totals, materials and a per-room breakdown.
-
-## Check for updates
-
-**⚙ Settings → About → Check for updates** asks one small web file whether a newer version exists. It is the only thing in the app that
-uses the internet, and only when the button is clicked. Customers still download the new installer themselves.
-
-1. Put a file like `update/version.json` (a template is included) on the web. With GitHub, commit it to a public repository and use the
-   "Raw" address, e.g. `https://raw.githubusercontent.com/YOURNAME/YOUR-RELEASES-REPO/main/version.json`.
-   `version` is the newest version, `url` is the page customers open to download it (your Releases page), `notes` is optional.
-2. Put that address in `package.json` as `"dpeUpdateUrl"`, then rebuild.
-3. Each time you release, raise the version (`npm version minor --no-git-tag-version`), build, upload the installers to the release,
-   and change `version` in the web file. The button compares the two numbers.
-
-## License keys (yearly or monthly, works offline)
+License keys (yearly or monthly, works offline)
 
 Have to Email or Call for a generated key
