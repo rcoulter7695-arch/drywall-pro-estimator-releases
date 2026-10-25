@@ -7,6 +7,7 @@
 <img width="3780" height="2004" alt="Screenshot 2026-10-24 171400" src="https://github.com/user-attachments/assets/907ae613-e2d8-4b6c-ac73-647a11c8f9ad" />
 # drywall-pro-estimator-releases
 
+
 Drywall Pro Estimator – Windows + Linux desktop app
 A standalone, offline drywall material estimator. The app makes no network requests and needs no account.
 
