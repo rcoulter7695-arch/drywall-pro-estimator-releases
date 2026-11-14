@@ -49,4 +49,4 @@ Each time you release, raise the version (npm version minor --no-git-tag-version
 
 License keys (yearly or monthly, works offline)
 
-Have to Email rcoulter7695@gmail.com or Call- Text (502)356-7301 for a generated key. 7 Day Free Trial Just Click To activate in the program
+Have to Email drywallpro-estimator@dr.com or Call- Text (502)356-7301 for a generated key. 7 Day Free Trial Just Click To activate in the program
