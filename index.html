@@ -30,7 +30,7 @@
   "name": "Drywall Pro Estimator",
   "applicationCategory": "BusinessApplication",
   "operatingSystem": "Windows, Linux",
-  "softwareVersion": "1.11.1",
+  "softwareVersion": "1.15.2",
   "description": "Offline drywall estimating software with blueprint takeoff, sheet counts, ProForm joint compound boxes, screws, tape and primer totals.",
   "url": "https://drywallproestimator.work.gd/",
   "image": "https://drywallproestimator.work.gd/assets/logo.png",
@@ -92,6 +92,8 @@ h1 span{color:var(--chalk)}
 .btn.secondary{background:transparent;color:var(--chalk)}
 .btn:hover{filter:brightness(1.08)}
 .meta{margin-top:16px;font:500 13px/1.5 var(--mono);color:var(--muted)}
+.alt-dl{margin-top:12px;font-size:15px;color:var(--muted)}
+.alt-dl a{font-weight:600}
 
 /* calculator: drawn as a sheet with a tape edge */
 .calc{background:var(--panel);border:1px solid var(--line);border-radius:4px;position:relative;padding:22px 22px 20px;min-width:0}
@@ -203,7 +205,8 @@ footer{padding-block:28px 40px;border-top:1px solid var(--line);font-size:14px;c
         <span>Download for Linux<small id="linux-meta">.AppImage · runs on most distros</small></span>
       </a>
     </div>
-    <div class="meta">Version <span id="ver">1.11.1</span> · 7-day free trial · <a href="#pricing">from $166/month</a></div>
+    <p class="alt-dl">Windows without installing: <a id="dl-portable" href="#">download the portable version</a>. Runs straight from a folder or USB drive.</p>
+    <div class="meta">Version <span id="ver">1.15.2</span> · 7-day free trial · <a href="#pricing">from $166/month</a></div>
     <a class="gh" id="gh-link" href="#" target="_blank" rel="noopener">
       <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 0 0-3.2 19.5c.5.1.7-.2.7-.5v-1.7c-2.8.6-3.4-1.3-3.4-1.3-.5-1.2-1.1-1.5-1.1-1.5-.9-.6.1-.6.1-.6 1 .1 1.5 1 1.5 1 .9 1.6 2.4 1.1 3 .9.1-.7.4-1.1.6-1.4-2.2-.3-4.6-1.1-4.6-5 0-1.1.4-2 1-2.7-.1-.3-.4-1.3.1-2.7 0 0 .8-.3 2.8 1a9.6 9.6 0 0 1 5 0c1.9-1.3 2.8-1 2.8-1 .5 1.4.2 2.4.1 2.7.6.7 1 1.6 1 2.7 0 3.9-2.4 4.7-4.6 5 .4.3.7.9.7 1.9V21c0 .3.2.6.7.5A10 10 0 0 0 12 2z"/></svg>
       View source and all releases on GitHub
@@ -315,18 +318,19 @@ footer{padding-block:28px 40px;border-top:1px solid var(--line);font-size:14px;c
     <div>
       <h3>Windows</h3>
       <ol>
-        <li>On the release page, open <b>Assets</b> and download the <code>.exe</code> file.</li>
-        <li>Double-click it. If Windows shows "Windows protected your PC," click <b>More info</b>, then <b>Run anyway</b>.</li>
+        <li>Click <b>Download for Windows</b> at the top of this page.</li>
+        <li>Open <code>Drywall-Pro-Estimator-Setup.exe</code> from your Downloads folder. If Windows shows "Windows protected your PC," click <b>More info</b>, then <b>Run anyway</b>.</li>
         <li>Open Drywall Pro Estimator from the Start menu.</li>
       </ol>
     </div>
     <div>
       <h3>Linux</h3>
       <ol>
-        <li>On the release page, open <b>Assets</b> and download the <code>.AppImage</code> file.</li>
-        <li>Make it runnable and start it (use your file's name):
-          <pre>chmod +x Drywall*.AppImage
-./Drywall*.AppImage</pre></li>
+        <li>Click <b>Download for Linux</b> at the top of this page.</li>
+        <li>Make it runnable and start it:
+          <pre>cd ~/Downloads
+chmod +x Drywall-Pro-Estimator.AppImage
+./Drywall-Pro-Estimator.AppImage</pre></li>
         <li>On Arch, if it won't start, install FUSE: <code>sudo pacman -S fuse2</code></li>
       </ol>
     </div>
@@ -344,13 +348,14 @@ footer{padding-block:28px 40px;border-top:1px solid var(--line);font-size:14px;c
 <script>
 /* ===== EDIT THESE when you post a new build ===== */
 const CONFIG = {
-  version: "1.11.1",
+  version: "1.15.2",
   github: "https://github.com/rcoulter7695-arch/drywall-pro-estimator-releases",
   // Optional: the exact file names on your release, for one-click downloads.
   // Leave blank ("") and the button opens your latest release page instead.
   // Only works if the name stays the same every release (no version number in it).
-  windowsFile: "",
-  linuxFile:   "",
+  windowsFile: "Drywall-Pro-Estimator-Setup.exe",
+  linuxFile:   "Drywall-Pro-Estimator.AppImage",
+  portableFile: "Drywall-Pro-Estimator-Portable.exe",
   // Screenshots from your README. To host them yourself, save them
   // in an "assets" folder and change these to "assets/screenshot-1.png" etc.
   screenshots: [
@@ -369,12 +374,14 @@ const latest = CONFIG.github + "/releases/latest/download/";
 document.getElementById("ver").textContent = CONFIG.version;
 document.getElementById("dl-win").href = CONFIG.windowsFile ? latest + CONFIG.windowsFile : releasePage;
 document.getElementById("dl-linux").href = CONFIG.linuxFile ? latest + CONFIG.linuxFile : releasePage;
+document.getElementById("dl-portable").href = CONFIG.portableFile ? latest + CONFIG.portableFile : releasePage;
 document.getElementById("gh-link").href = CONFIG.github + "/releases";
 
 // Count download and contact clicks in Google Analytics
 function track(name, params){ try { if (window.gtag) gtag('event', name, params); } catch(e){} }
 document.getElementById("dl-win").addEventListener("click", () => track("download_click", {platform: "windows"}));
 document.getElementById("dl-linux").addEventListener("click", () => track("download_click", {platform: "linux"}));
+document.getElementById("dl-portable").addEventListener("click", () => track("download_click", {platform: "windows_portable"}));
 document.querySelectorAll('a[href^="mailto:"]').forEach(a => a.addEventListener("click", () => track("contact_click", {method: "email"})));
 document.querySelectorAll('a[href^="tel:"]').forEach(a => a.addEventListener("click", () => track("contact_click", {method: "call"})));
 document.querySelectorAll('a[href^="sms:"]').forEach(a => a.addEventListener("click", () => track("contact_click", {method: "text"})));
